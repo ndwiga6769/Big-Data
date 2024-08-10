@@ -31,3 +31,12 @@ FROM Employees e1
 JOIN Employees e2 ON e1.job_title = e2.job_title
 WHERE e1.employee_id <> e2.employee_id;
 -- In this example, we're joining the Employees table with itself, using the job_title column as
+
+Finding Successive Rows
+Use Case: When you need to find relationships between successive rows, such as finding 
+an employee who joined the company immediately after another employee.
+
+SELECT e1.name AS CurrentEmployee, e2.name AS NextEmployee
+FROM Employees e1
+JOIN Employees e2 ON e1.join_date < e2.join_date
+ORDER BY e1.join_date, e2.join_date;
