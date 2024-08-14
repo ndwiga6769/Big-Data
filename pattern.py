@@ -8,6 +8,5 @@ result = re.search(pattern, name)
 if result:
     print(f"The pattern '{pattern}' was found in the name '{name}'.")
 else :
-    print(f"The pattern '{pattern}' was found in the name '{name}'.")
+    print(f"The pattern '{pattern}' was Not found in the name '{name}'.")
 
-    
