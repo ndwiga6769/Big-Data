@@ -7,7 +7,7 @@ create table comments_and_translations
 	comment			varchar(100),
 	translation		varchar(100)
 );
-
+Using the Source and Target table, write a query to arrive at the Output table as shown in below image. Provide the solution without using subqueries.
 insert into comments_and_translations values
 (1, 'very good', null),
 (2, 'good', null),
@@ -21,9 +21,13 @@ insert into comments_and_translations values
 (10, 'ccddccbb', 'medium');
 commit;
 
-select case when translation is null
-	then comment
+
+select coalesce(translation, comment ) as output
+from comments_and_translations;
+
+select case when translation is null 
+	then comment 
 	else translation
-	end as output
+	END AS output
 from comments_and_translations;
 
